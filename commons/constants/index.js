@@ -1,3 +1,3 @@
 module.exports = {
-    prioriies: require('./priorities')
+    priorities: require('./priorities')
 }
