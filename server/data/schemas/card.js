@@ -1,5 +1,5 @@
 const { Schema } = require('mongoose')
-const { constants: { priorities } }
+const { constants: { priorities } } = require('commons')
 
 
 module.exports = new Schema({

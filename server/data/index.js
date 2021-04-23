@@ -1,3 +1,3 @@
 module.exports = {
-    Card: require('./models')
+    models: require('./models')
 }
