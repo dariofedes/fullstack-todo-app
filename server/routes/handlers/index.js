@@ -1,3 +1,3 @@
 module.exports = {
-    createCardHandler: require('./create-card-handler')
+    createTaskHandler: require('./create-task-handler')
 }

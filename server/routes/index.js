@@ -1,7 +1,7 @@
 const { Router } = require('express')
 const { json } = require('body-parser')
 const {
-    createCardHandler,
+    createTaskHandler,
 } = require('./handlers')
 
 const jsonBodyParser = json()
@@ -9,6 +9,6 @@ const jsonBodyParser = json()
 const router = new Router()
 
 // Routes
-router.post('/card', jsonBodyParser, createCardHandler)
+router.post('/task', jsonBodyParser, createTaskHandler)
 
 module.exports = router

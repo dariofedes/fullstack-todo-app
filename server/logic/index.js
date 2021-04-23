@@ -1,3 +1,3 @@
 module.exports = {
-    createCard: require('./create-card'),
+    createTask: require('./create-task'),
 }
