@@ -1,3 +1,4 @@
 module.exports = {
-    ContentError: require('./content-error')
+    ContentError: require('./content-error'),
+    NotFoundError: require('./not-found-error'),
 }
