@@ -1,15 +1,17 @@
-const { ContentError } = require('../../errors')
+const { ContentError, NotFoundError } = require('../../errors')
 
 module.exports = function errorHandler(error, res) {
     let status
     let message = error.message
 
     switch(true) {
-        case error instanceof ContentError ||
-            error instanceof TypeError ||
-            error instanceof RangeError:
+        case error instanceof ContentError:
             status = 406
-            break
+            break;
+
+        case error instanceof NotFoundError:
+            status = 404
+            break;
             
         default:
             status = 500
