@@ -8,7 +8,7 @@ const { models: { Task } } = require('../data')
 
 let fakeTitle
 
-describe.only('retrieveTasks', () => {
+describe('retrieveTasks', () => {
     before(async () => {
         await mongoose.connect(MONGODB_URL_TEST, { useNewUrlParser: true, useUnifiedTopology: true })
         await Task.deleteMany()
