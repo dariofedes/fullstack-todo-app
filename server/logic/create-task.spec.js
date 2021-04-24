@@ -3,6 +3,7 @@ const { env: { MONGODB_URL_TEST } } = process
 
 const { expect } = require('chai')
 const mongoose = require('mongoose')
+const { ContentError } = require('../errors')
 const { constants: { priorities } } = require('commons')
 const createTask = require('./create-task')
 const { models: { Task } } = require('../data')
@@ -101,57 +102,57 @@ describe('createTask', () => {
             fakePriority = prioritiesArray[Math.floor(Math.random() * prioritiesArray.length)]
         })
 
-        it('should throw a TypeError on not string title', () => {
+        it('should throw a ContentError on not string title', () => {
             fakeTitle = 1
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
 
             fakeTitle = true
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
 
             fakeTitle = undefined
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
 
             fakeTitle = null
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
 
             fakeTitle = { }
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
 
             fakeTitle = [ ]
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
         })
 
-        it('should throw a TypeError on existing but not string description', () => {
+        it('should throw a ContentError on existing but not string description', () => {
             fakeDescription = 1
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'description must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'description must be a string')
 
             fakeDescription = true
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'description must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'description must be a string')
 
             fakeDescription = { }
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'description must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'description must be a string')
 
             fakeDescription = [ ]
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'description must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'description must be a string')
         })
 
-        it('should throw a TypeError on existing but not string priority', () => {
+        it('should throw a ContentError on existing but not string priority', () => {
             fakePriority = 1
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'priority must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'priority must be a string')
 
             fakePriority = true
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'priority must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'priority must be a string')
 
             fakePriority = { }
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'priority must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'priority must be a string')
 
             fakePriority = [ ]
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(TypeError, 'priority must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'priority must be a string')
         })
 
-        it('should throw a RangeError on string but not accepted priority', () => {
+        it('should throw a ContentError on string but not accepted priority', () => {
             fakePriority = "NOT_ACCEPTED_PRIORITY"
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(RangeError, 'priority must be one of LOW,MEDIUM,HIGH,CRITICAL')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'priority must be one of LOW,MEDIUM,HIGH,CRITICAL')
         })
 
 
