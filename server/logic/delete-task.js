@@ -14,7 +14,7 @@ const { NotFoundError, ContentError } = require('../errors')
 
 module.exports = function deleteTask(taskId) {
     // Type check
-    if(typeof taskId !== 'string') throw new ContentError('taskId must be a string')
+    if(!taskId || typeof taskId !== 'string') throw new ContentError('taskId must be a non empty string')
 
     // Deleting task
     return (async () => {

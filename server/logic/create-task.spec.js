@@ -102,24 +102,28 @@ describe('createTask', () => {
             fakePriority = prioritiesArray[Math.floor(Math.random() * prioritiesArray.length)]
         })
 
-        it('should throw a ContentError on not string title', () => {
+        it('should throw a ContentError on not string or empty string title', () => {
+// TODO Check empty string
             fakeTitle = 1
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a non empty string')
 
             fakeTitle = true
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a non empty string')
+            
+            fakeTitle = ''
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a non empty string')
 
             fakeTitle = undefined
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a non empty string')
 
             fakeTitle = null
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a non empty string')
 
             fakeTitle = { }
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a non empty string')
 
             fakeTitle = [ ]
-            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a string')
+            expect(() => createTask(fakeTitle, fakeDescription, fakePriority)).to.throw(ContentError, 'title must be a non empty string')
         })
 
         it('should throw a ContentError on existing but not string description', () => {

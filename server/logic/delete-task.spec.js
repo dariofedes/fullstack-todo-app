@@ -69,24 +69,27 @@ describe('deleteTask', () => {
     })
 
     describe('on not valid arguments', () => {
-        it('should throw a ContentError on not string taskId', () => {
+        it('should throw a ContentError on not string or empty string taskId', () => {
             taskId = 1
-            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a string')
+            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a non empty string')
 
             taskId = true
-            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a string')
+            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a non empty string')
+            
+            taskId = ''
+            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a non empty string')
 
             taskId = undefined
-            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a string')
+            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a non empty string')
 
             taskId = null
-            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a string')
+            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a non empty string')
 
             taskId = { }
-            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a string')
+            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a non empty string')
 
             taskId = [ ]
-            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a string')
+            expect(() => deleteTask(taskId)).to.throw(ContentError, 'taskId must be a non empty string')
         })
     })
 

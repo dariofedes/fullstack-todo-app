@@ -21,7 +21,7 @@ const { ContentError } = require('../errors')
 
 module.exports = function createTask(title, description, priority = priorities.MEDIUM) {
     // Type check
-    if(typeof title !== 'string') throw new ContentError('title must be a string')
+    if(!title || typeof title !== 'string') throw new ContentError('title must be a non empty string')
     if(description && typeof description !== 'string') throw new ContentError('description must be a string')
     if(typeof priority !== 'string') throw new ContentError('priority must be a string')
     if(!Object.values(priorities).includes(priority)) throw new ContentError(`priority must be one of ${Object.values(priorities)}`)
