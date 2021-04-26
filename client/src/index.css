@@ -14,6 +14,7 @@ a {
 
 body {
   font-family: "Arial";
+  background-color: #F6F5F5;
 }
 
 .header {
@@ -27,6 +28,181 @@ body {
 .header__title {
   color: #FFFFFF;
   font-size: 2.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 680px;
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+  border: 1px solid #707070;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card__header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #95649A;
+  gap: 1rem;
+}
+.card__title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem 1.5rem;
+}
+.card__description {
+  margin-bottom: 1.5rem;
+  color: #707070;
+  font-size: 1.2rem;
+}
+.card__footer {
+  display: flex;
+  align-self: flex-end;
+  gap: 2rem;
+  padding: 1rem 1.5rem;
+}
+.card__title-input {
+  font-size: 1.8rem;
+  color: #707070;
+  outline: none;
+}
+.card__description-input {
+  box-sizing: border-box;
+  font-size: 1.2rem;
+  color: #707070;
+  outline: none;
+  padding: 1rem 1.5rem;
+}
+
+.label {
+  padding: 0.5rem 1rem;
+  border: 1px solid #707070;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 1rem;
+}
+.label--LOW {
+  background-color: #44A1AD;
+}
+.label--MEDIUM {
+  background-color: #79B96E;
+}
+.label--HIGH {
+  background-color: #E8C44F;
+}
+.label--CRITICAL {
+  background-color: #DD706A;
+}
+
+.dropdown {
+  font-size: 1.1rem;
+  color: #707070;
+  outline: none;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loading__message {
+  font-size: 2rem;
+}
+
+.error-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  background-color: #DD706A;
+  color: #FFFFFF;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.error-card__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.error-card__message {
+  font-size: 1rem;
+}
+
+.button {
+  background-color: #623e66;
+  border-radius: 10px;
+  min-width: 7rem;
+  border: 1px solid #707070;
+  outline: none;
+  padding: 0.8rem 1.5rem;
+  color: #FFFFFF;
+  box-sizing: border-box;
+}
+.button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.button--ACCEPT {
+  background-color: #79B96E;
+}
+.button--DANGER {
+  background-color: #DD706A;
+}
+.button--CANCEL {
+  color: #707070;
+  background-color: #F6F5F5;
+}
+.button__title {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  max-width: 680px;
+  padding: 1rem 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 1rem;
+}
+.home__add-container {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+.home__tasks-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.home__task {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*# sourceMappingURL=index.css.map */
