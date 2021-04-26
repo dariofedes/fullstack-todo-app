@@ -3,7 +3,7 @@ const { env: { PORT = 8080, MONGODB_URL } } = process
 
 const express = require('express')
 const mongoose = require('mongoose')
-const { cors } = require('./middlewares')
+const cors = require('cors')
 const router = require('./routes')
 
 
@@ -11,6 +11,8 @@ return (async () => {
     await mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, () => console.log('🗄  Connected to database'))
 
     const app = express()
+
+    app.use(cors())
 
     app.use('/api', router)
 
