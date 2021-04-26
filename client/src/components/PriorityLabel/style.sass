@@ -1,0 +1,16 @@
+@import '../../palette'
+
+.label
+    padding: .5rem 1rem
+    border: 1px solid $border-color
+    border-radius: 10px
+    color: $light-text
+    font-size: 1rem
+    &--LOW
+        background-color: $low-priority-color
+    &--MEDIUM
+        background-color: $medium-priority-color
+    &--HIGH
+        background-color: $high-priority-color
+    &--CRITICAL
+        background-color: $critical-priority-color
