@@ -118,3 +118,6 @@ dist
 # SASS
 
 index.css.map
+
+
+build/
