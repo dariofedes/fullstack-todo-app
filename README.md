@@ -2,7 +2,7 @@
 
 ## Description
 
-Fullstack CRUD app for managing a TODO list.
+Fullstack CRUD app for managing a TODO list. :)
 
 URL: http://list-it.surge.sh
 
